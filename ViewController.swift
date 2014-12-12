@@ -9,7 +9,30 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet var shoesSizeTextField: UITextField!
+    @IBOutlet var convertedShoeSizeLabel: UILabel!
+    @IBOutlet var womenShoeSizeTextField: UITextField!
+    @IBOutlet var womenShoeSizeLabel: UILabel!
+    
+    
+    @IBAction func convertButtonPressed(sender: AnyObject)
+    {
+        let sizeFromTextField = shoesSizeTextField.text.toInt()!
+        
+        let conversionConstant = 30
+        convertedShoeSizeLabel.hidden = false
+        convertedShoeSizeLabel.text = "\(sizeFromTextField + conversionConstant)" + " in European size"
+    }
 
+    @IBAction func convertWomanShoeButtonPressed(sender: AnyObject)
+    {
+        let sizeFromTextField = (womenShoeSizeTextField.text as NSString).doubleValue
+        let conversionConstant = 30.5
+        womenShoeSizeLabel.hidden = false
+        womenShoeSizeLabel.text = "\(sizeFromTextField + conversionConstant)" + " in European size"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
